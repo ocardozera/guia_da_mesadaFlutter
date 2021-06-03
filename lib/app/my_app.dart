@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:guia_da_mesada/app/view/my_home_page.dart';
+import 'package:guia_da_mesada/app/view/filhos_form.dart';
+import 'package:guia_da_mesada/app/view/filhos_lista.dart';
 
 class MyApp extends StatelessWidget {
+  static const HOME = '/';
+  static const FILHOS_FORM = 'filhos-form';
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,10 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Aula Flutter'),
+      routes: {
+        HOME: (context)=>FilhosLista(),
+        FILHOS_FORM: (context)=>FilhosForm()
+      }
     );
   }
 }
