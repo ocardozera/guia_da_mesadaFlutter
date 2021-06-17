@@ -9,7 +9,6 @@ class PrimeiroWidget extends StatefulWidget {
 class _PrimeiroWidgetState extends State<PrimeiroWidget> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     throw UnimplementedError();
   }
 }

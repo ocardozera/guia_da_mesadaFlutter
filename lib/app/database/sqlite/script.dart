@@ -2,7 +2,7 @@
 
 final createTable = '''
   CREATE TABLE filho(
-   id INT NOT NULL PRIMARY KEY,
+   id INT PRIMARY KEY,
    nome VARCHAR(250) NOT NULL,
    dataNasc DATE NOT NULL,
    usuario VARCHAR(100) NOT NULL,
