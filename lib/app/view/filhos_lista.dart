@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:guia_da_mesada/app/database/sqlite/connection.dart';
+import 'package:guia_da_mesada/app/database/sqlite/dao/filho_dao_implementacao.dart';
+import 'package:guia_da_mesada/app/domain/entities/filho.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../my_app.dart';
 
 class FilhosLista extends StatelessWidget {
 
-  Future <List<Map<String,dynamic>>> _buscarFilhos() async {
-    Database db = await Connection.get();
-    return db.query('filho');
+  Future<List<Filho>> _buscarFilhos() async {
+    return FilhoDAOImplementacao().find();
   }
 
   @override
@@ -17,7 +18,7 @@ class FilhosLista extends StatelessWidget {
       future: _buscarFilhos(),
       builder: (context, futuro) {
         if (futuro.hasData) {
-          var lista = futuro.data;
+          List<Filho> lista = futuro.data;
 
           return Scaffold(
             appBar: AppBar(
@@ -34,8 +35,8 @@ class FilhosLista extends StatelessWidget {
                   itemBuilder: (context, i){
                     var filho = lista[i];
                     return ListTile(
-                      title: Text(filho['nome']),
-                      subtitle: Text(filho['dataNasc']),
+                      title: Text(filho.nome),
+                      subtitle: Text(filho.dataNasc.toString()),
                       trailing: Container(
                         width: 100,
                         child: Row(children: [
