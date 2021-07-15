@@ -33,54 +33,64 @@ class FilhosLista extends StatelessWidget {
     }, icon: Icon(Icons.delete), color: Colors.red);
   }
 
-  @override
+
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
-            appBar: AppBar(
-              title: Text('Lista de Filhos'),
-              actions: [
-                IconButton(
-                  icon: Icon(Icons.add_circle), 
-                  onPressed: (){
-                    Navigator.of(context).pushNamed(MyApp.FILHOS_FORM);
-                    })
-                ],),
-                  body: Observer(builder: context){
-                    return FutureBuilder(
-                    future: _back.listaFilhos,
-                    builder: (context, futuro) {
-                      if (!futuro.hasData) {
-                        return CircularProgressIndicator();
-                      } else {
-                        List<Filho> lista = futuro.data;
-                        return ListView.builder(
-                          itemCount: lista.length,
-                          itemBuilder: (context, i){
-                            var filho = lista[i];
-                            return ListTile(
-                              title: Text(filho.nome),
-                              subtitle: Text(filho.dataNasc.toString()),
-                              trailing: Container(
-                                width: 100,
-                                child: Row(children: [botaoEditar((){
-                                  _back.chamarFormulario(context, filho);
-                                }),
-                                botaoExcluir(context, () {
-                                  _back.excluirFilho(filho.id);
-                                  Navigator.of(context).pop();
-                                })
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                );
-              }          
+      appBar: AppBar(
+        title: Text('Lista de Filhos'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.add_circle),
+            onPressed: (){
+              Navigator.of(context).pushNamed(MyApp.FILHOS_FORM);            
+            } 
+          )
+        ],
+      ),
+      body: Observer(builder: (context){
+        return FutureBuilder(
+          future: _back.listaFilhos,
+          builder: (context, futuro) {
+            if (!futuro.hasData) {
+              return CircularProgressIndicator();
+            } else {
+              List<Filho> lista = futuro.data;
+              return ListView.builder(
+                itemCount: lista.length,
+                itemBuilder: (context, i) {
+                  var filho = lista[i];
+                  return ListTile(
+                    title: Text(filho.nome),
+                    subtitle: Text(filho.dataNasc.toString()),
+                    trailing: Container(
+                      width: 100,
+                      child: Row(
+                        children: [
+                          botaoEditar( (){
+                            _back.chamarFormulario(context, filho);
+                          }),
+                          botaoExcluir(context, (){
+                            _back.excluirFilho(filho.id);
+                            Navigator.of(context).pop();
+                          })
+                        ]
+                      )
+                    )
+                  );
+                }
+              );
             }
-          ));
-                  });
-                  
-                  
-                  
-    }
+          }
+        );
+      }),
+    );
+  }
+
+
+
+
+
+
+
 }
