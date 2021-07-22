@@ -83,7 +83,7 @@ class FilhosLista extends StatelessWidget {
             }
           }
         );
-      }),
+      })
     );
   }
 
