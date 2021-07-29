@@ -2,13 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
 import 'package:guia_da_mesada/app/domain/entities/filho.dart';
 import 'package:guia_da_mesada/app/domain/services/filho_service.dart';
-import 'package:mobx/mobx.dart';
 
-part 'filho_form_back.g.dart';
-
-class FilhoFormBack = _FilhoFormBack with _$FilhoFormBack;
-
-abstract class _FilhoFormBack with Store {
+class FilhoFormBack {
   Filho filho;
   var _service = GetIt.I.get<FilhoService>();
   bool _nomeValido;
@@ -16,12 +11,11 @@ abstract class _FilhoFormBack with Store {
   bool _usuarioValido;
   bool _senhaValida;
 
-  @action
   bool get estaValido =>
       _nomeValido && _dataNascValida && _usuarioValido && _senhaValida;
 
 // diferenciar novo com alteração
-  _FilhoFormBack(BuildContext context) {
+  FilhoFormBack(BuildContext context) {
     var parametro = ModalRoute.of(context).settings.arguments;
     filho = (parametro == null) ? Filho() : parametro;
   }
