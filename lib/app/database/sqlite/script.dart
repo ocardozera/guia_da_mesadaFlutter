@@ -1,7 +1,5 @@
-
-
 final createTable = '''
-  CREATE TABLE filho(
+  CREATE TABLE pessoa(
    id INTEGER NOT NULL PRIMARY KEY,
    nome VARCHAR(250) NOT NULL,
    dataNasc DATE NOT NULL,
@@ -12,18 +10,24 @@ final createTable = '''
 ''';
 
 final insert1 = '''
-  INSERT INTO filho (nome, dataNasc, usuario, senha, sexo)
+  INSERT INTO pessoa (nome, dataNasc, usuario, senha, sexo)
   VALUES ('Carlos', '29/08/2008', 'carlos', '123', 'M')
 ''';
 
 final insert2 = '''
-  INSERT INTO filho (nome, dataNasc, usuario, senha, sexo)
+  INSERT INTO pessoa (nome, dataNasc, usuario, senha, sexo)
   VALUES ('Natália', '21/09/2007', 'natalia', '123', 'F')
 ''';
 
-
- final lista = [
-    {'nome':'Carlos','dataNasc':'29/08/2008', 'sexo':'M', },
-    {'nome':'Natália','dataNasc':'21/09/2007', 'sexo':'F', }
-  ];
-
+final lista = [
+  {
+    'nome': 'Carlos',
+    'dataNasc': '29/08/2008',
+    'sexo': 'M',
+  },
+  {
+    'nome': 'Natália',
+    'dataNasc': '21/09/2007',
+    'sexo': 'F',
+  }
+];

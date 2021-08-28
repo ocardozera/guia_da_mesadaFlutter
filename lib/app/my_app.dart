@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:guia_da_mesada/app/view/filho_details.dart';
-import 'package:guia_da_mesada/app/view/filhos_form.dart';
-import 'package:guia_da_mesada/app/view/filhos_lista.dart';
+import 'package:guia_da_mesada/app/view/pessoa_details.dart';
+import 'package:guia_da_mesada/app/view/pessoas_form.dart';
+import 'package:guia_da_mesada/app/view/pessoas_lista.dart';
 
 class MyApp extends StatelessWidget {
   static const HOME = '/';
-  static const FILHOS_FORM = 'filhos-form';
-  static const FILHO_DETAILS = 'filho-details';
+  static const PESSOAS_FORM = 'pessoas-form';
+  static const PESSOA_DETAILS = 'pessoa-details';
 
   // This widget is the root of your application.
   @override
@@ -27,9 +27,9 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         routes: {
-          HOME: (context) => FilhosLista(),
-          FILHOS_FORM: (context) => FilhosForm()
-          FILHO_DETAILS: (context) => FilhoDetails()
+          HOME: (context) => PessoasLista(),
+          PESSOAS_FORM: (context) => PessoasForm(),
+          PESSOA_DETAILS: (context) => PessoaDetails()
         });
   }
 }
