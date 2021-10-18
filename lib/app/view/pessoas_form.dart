@@ -78,8 +78,7 @@ class PessoaForm extends StatelessWidget {
             _form.currentState.validate();
             _form.currentState.save();
             if (_back.estaValido) {
-              _back.save();
-              Navigator.of(context).pop();
+              _back.save(context);
             }
 
           })

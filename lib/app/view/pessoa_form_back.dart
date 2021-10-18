@@ -21,8 +21,9 @@ class PessoaFormBack {
   }
 
 // salvar
-  save() async {
+  save(BuildContext context) async {
     await _service.save(pessoa);
+    Navigator.of(context).pop();
   }
 
 // validações

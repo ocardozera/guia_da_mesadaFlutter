@@ -39,8 +39,9 @@ abstract class _PessoasListBack with Store {
   }
 
   //metodo excluir
-  excluirPessoa(int id) {
-    _service.remove(id);
+  excluirPessoa(int id, BuildContext context) async {
+    await _service.remove(id);
     atualizarListaPessoas();
+    Navigator.of(context).pop();
   }
 }

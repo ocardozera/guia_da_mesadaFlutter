@@ -8,17 +8,17 @@ import 'package:guia_da_mesada/app/domain/exception/domain_layer_exception.dart'
 class PessoaService {
   var _dao = GetIt.I.get<PessoaDAO>();
   // salvar um contato, possibilidade de alterar/excluir e listar todos os contatos
-  save(Pessoa pessoa) {
+  save(Pessoa pessoa) async {
     validateName(pessoa.nome);
     validadeDataNasc(pessoa.dataNasc);
     validateUsuario(pessoa.usuario);
     validateSenha(pessoa.senha);
 
-    _dao.save(pessoa);
+    await _dao.save(pessoa);
   }
 
-  remove(int id) {
-    _dao.remove(id);
+  remove(int id) async {
+    await _dao.remove(id);
   }
 
   Future<List<Pessoa>> find() {

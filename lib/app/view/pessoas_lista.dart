@@ -79,8 +79,8 @@ class PessoasLista extends StatelessWidget {
                                     _back.chamarFormulario(context, pessoa);
                                   }),
                                   botaoExcluir(context, () {
-                                    _back.excluirPessoa(pessoa.id);
-                                    Navigator.of(context).pop();
+                                    _back.excluirPessoa(pessoa.id, context);
+                                
                                   })
                                 ])));
                       });
